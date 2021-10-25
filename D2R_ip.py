@@ -1,3 +1,4 @@
+import sys
 import psutil
 import logging
 from time import strftime, time, sleep
@@ -44,6 +45,13 @@ s = scheduler(time, sleep)
 previous_ip = 0
 current_game_ip = 0
 previous_time = 0
+hunting_ip = ''
+hunting_ip_found = False
+
+if (len(sys.argv) >= 2):
+    print('Hunting for ip: ' + Fore.LIGHTRED_EX + sys.argv[1] + Style.RESET_ALL)
+    hunting_ip = sys.argv[1]
+
 def print_ip():
     s.enter(update_interval, 1, print_ip)   # run this function every update_interval
     d2r_pid = 0
@@ -60,6 +68,7 @@ def print_ip():
     global previous_ip
     global current_game_ip
     global previous_time
+    global hunting_ip_found
     region = '?'
     for c in p.connections('tcp'):
         if (c.raddr):
@@ -78,6 +87,10 @@ def print_ip():
         logging.info('{}, {}'.format(region, current_game_ip))
         previous_ip = current_game_ip
         previous_time = time()
+        hunting_ip_found = False
+    if(current_game_ip == hunting_ip and not hunting_ip_found):
+        print(Fore.LIGHTRED_EX + 'Clone IP found!' + Style.RESET_ALL)
+        hunting_ip_found = True
     # display clock, coloured green if more then 1 minute passed since last game creation:
     msg = datetime.now().strftime('%Y-%m-%d, %H:%M:%S')
     info = ' (press CTRL+C to exit)'
