@@ -47,6 +47,7 @@ current_game_ip = 0
 previous_time = 0
 hunting_ip = ''
 hunting_ip_found = False
+game_number = 1
 
 if len(sys.argv) >= 2:
     print('Hunting for ip: ' + Fore.LIGHTRED_EX + sys.argv[1] + Style.RESET_ALL)
@@ -69,6 +70,7 @@ def print_ip():
     global current_game_ip
     global previous_time
     global hunting_ip_found
+    global game_number
     region = '?'
     for c in p.connections('tcp'):
         if c.raddr:
@@ -83,16 +85,17 @@ def print_ip():
                 current_game_ip = ip
     if current_game_ip != previous_ip:
         # found a new game ip, log it
-        print(' '*44, end="\r", flush=True) #clear line
-        logging.info('{}, {}'.format(region, current_game_ip))
+        print(' '*50, end="\r", flush=True) #clear line
+        logging.info('{:>3}  {}, {}'.format(game_number, region, current_game_ip))
         previous_ip = current_game_ip
         previous_time = time()
         hunting_ip_found = False
+        game_number += 1
     if current_game_ip == hunting_ip and not hunting_ip_found:
         print(Fore.LIGHTRED_EX + 'Clone IP found!' + Style.RESET_ALL)
         hunting_ip_found = True
     # display clock, coloured green if more then 1 minute passed since last game creation:
-    msg = datetime.now().strftime('%Y-%m-%d, %H:%M:%S')
+    msg = datetime.now().strftime('%Y-%m-%d, %H:%M:%S') + ', {:>3}  '.format(game_number)
     info = ' (press CTRL+C to exit)'
     if previous_time > 0 and time()-previous_time >= 60:
         print(Fore.GREEN + msg + Style.RESET_ALL + info, end="\r", flush=True)
