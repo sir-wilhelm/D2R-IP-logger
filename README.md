@@ -59,4 +59,4 @@ Thanks to [nocawy](https://github.com/nocawy) for the original version of the [s
 
 ## License
 
-[MIT License](/LICENSE.txt).
+[MIT License](/LICENSE).
