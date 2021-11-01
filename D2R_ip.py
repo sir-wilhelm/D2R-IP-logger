@@ -92,7 +92,7 @@ def print_ip():
         hunting_ip_found = False
         game_number += 1
     if current_game_ip == hunting_ip and not hunting_ip_found:
-        print(Fore.LIGHTRED_EX + 'Clone IP found!' + Style.RESET_ALL)
+        print(Fore.LIGHTRED_EX + 'Clone IP found!\a' + Style.RESET_ALL)
         hunting_ip_found = True
     # display clock, coloured green if more then 1 minute passed since last game creation:
     msg = datetime.now().strftime('%Y-%m-%d, %H:%M:%S') + ', {:>3}  '.format(game_number)
