@@ -5,6 +5,7 @@ from time import strftime, time, sleep
 from datetime import datetime
 from colorama import init, Fore, Style
 from sched import scheduler
+from win10toast import ToastNotifier
 
 update_interval = 1     # refresh rate in seconds; setting lower than 1 might be pointless because the process of checking connections takes close to 1s
 logfile = 'D2R_ip_{}.log'.format(strftime('%Y-%m-%d'))
@@ -48,6 +49,7 @@ previous_time = 0
 hunting_ip = ''
 hunting_ip_found = False
 game_number = 1
+toaster = ToastNotifier()
 
 if len(sys.argv) >= 2:
     print('Hunting for ip: ' + Fore.LIGHTRED_EX + sys.argv[1] + Style.RESET_ALL)
@@ -93,6 +95,7 @@ def print_ip():
         game_number += 1
     if current_game_ip == hunting_ip and not hunting_ip_found:
         print(Fore.LIGHTRED_EX + 'Clone IP found!\a' + Style.RESET_ALL)
+        toaster.show_toast("D2R_ip","Clone IP found!")
         hunting_ip_found = True
     # display clock, coloured green if more then 1 minute passed since last game creation:
     msg = datetime.now().strftime('%Y-%m-%d, %H:%M:%S') + ', {:>3}  '.format(game_number)

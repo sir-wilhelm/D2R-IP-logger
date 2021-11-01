@@ -25,6 +25,7 @@ You can also run the
         * MSVC v142 - VS 2019 C++ x64/x86 build tools (latest)
         * Windows 10 SDK (any should work, I grabbed the highest version)
   * `pip install colorama`
+  * `pip install win10toast`
 * Download [D2R_ip.py](https://raw.githubusercontent.com/sir-wilhelm/D2R-IP-logger/main/D2R_ip.py) file.
 
 ## How to use
