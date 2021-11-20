@@ -1,3 +1,4 @@
+import os
 import sys
 import psutil
 import logging
@@ -5,6 +6,7 @@ from time import strftime, time, sleep
 from datetime import datetime
 from colorama import init, Fore, Style
 from sched import scheduler
+from win10toast import ToastNotifier
 from math import floor
 
 update_interval = 1     # refresh rate in seconds
@@ -36,6 +38,7 @@ previous_time = time()
 hunting_ip = ''
 hunting_ip_found = False
 game_number = 1
+toaster = ToastNotifier()
 
 print("D2R IP logger started. To exit press CTRL+C")
 if len(sys.argv) >= 2:
@@ -90,6 +93,11 @@ def print_ip():
             if current_game_ip == hunting_ip and not hunting_ip_found:
                 print(Fore.LIGHTRED_EX + 'Clone IP found!', flush=True)
                 hunting_ip_found = True
+                try:
+                    base_path = sys._MEIPASS
+                except Exception:
+                    base_path = os.path.abspath(".")
+                toaster.show_toast("D2R_ip","Clone IP found!", os.path.join(base_path, "files/diablo-skull_39227.ico"))
             logging.info('{:>3}, {}.{}, {}, {}'.format(game_number, region, subregion, current_game_ip, status))
             if current_game_ip != previous_ips:
                 hunting_ip_found = False
