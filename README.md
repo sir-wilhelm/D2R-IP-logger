@@ -42,12 +42,27 @@ To hunt for a specific ip address:
 
 ## Info
 
-In the last line a clock is displayed, which will turn green after 1 minute since the last game creation (which is, as of now, the cooldown before the servers allow you to create a new game).
+In the last line a clock is displayed, followed by the number of seconds that has passed since the last entry. The counter will go green and stop after 90 seconds.
 
 The logfiles appear in the same folder where the program is located, with filenames `D2R_ip_*.log` where `*` is today's date.  
 If you don't want any logfiles created then modify the code, the instructions are in comments.
 
 It also includes an IP/game counter.
+
+When `Diablo II: Resurrected` is launched and connects to battle.net it begins opening and closing connections to multiple IPs for about 20 seconds. The script might display some of them. If you create or join a game during that period, wait until no new IPs appear, the last (most recent) one will be your current game's IP.
+
+Next to region a number is displayed, e.g. `Asia,79` or `Europe,180`, associated with what some call a *subregion* or a different *lobby*. When `Diablo II: Resurrected` is launched it connects to one of the two possible addresses for each region:
+* Americas:
+  * `137.221.106.88`
+  * `137.221.106.188`
+* Europe:
+  * `37.244.28.80`
+  * `37.244.28.180`
+* Asia:
+  * `117.52.35.79`
+  * `117.52.35.179`
+
+Whether this *subregion* has any significance is yet to be discovered. Some players report problems with joining games across lobbies (e.g. from `.79` to `.179`). Although some game IPs can be found regardless of it (e.g. `34.93.229.25` can be found from both `.79` and `.179`).
 
 ## How it works
 
