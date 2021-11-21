@@ -25,13 +25,13 @@ You can also run the [D2R_ip.py](https://github.com/sir-wilhelm/D2R-IP-logger/ra
         * Windows 10 SDK (any should work, I grabbed the highest version)
   * `pip install colorama`
   * `pip install win10toast`
-* Download [D2R_ip.py](https://raw.githubusercontent.com/sir-wilhelm/D2R-IP-logger/main/D2R_ip.py) file.
+* Download [D2R_ip.zip](https://github.com/sir-wilhelm/D2R-IP-logger/releases/latest/download/D2R_ip.zip) and extract the contents.
 
 ## How to use
 
 On Windows you can either:
 * double-click `D2R_ip.py` or `D2R_ip.exe` in File Explorer
-* open PowerShell (`Windows Key + r`, type `powershell`, press enter), navigate to the directory where you downloaded the file (i.e. type `cd C:\Users\YourUsername\Downloads\`) then type `python D2R_ip.py` or `py D2R_ip.py` or `D2R_ip.exe`.
+* open PowerShell (`Windows Key + r`, type `powershell`, press enter), navigate to the directory where you extracted the files (i.e. type `cd C:\Users\YourUsername\Downloads\D2R_ip\`) then type `python D2R_ip.py` or `py D2R_ip.py` or `D2R_ip.exe`.
 
 To stop the program press `CTRL+C` or simply close the console window.
 
@@ -44,14 +44,14 @@ To hunt for a specific ip address:
 
 In the last line a clock is displayed, followed by the number of seconds that has passed since the last entry. The counter will go green and stop after 90 seconds.
 
-The logfiles appear in the same folder where the program is located, with filenames `D2R_ip_*.log` where `*` is today's date.  
+The logfiles appear in the same folder where the program is located, with filenames `D2R_ip_*.log` where `*` is today's date.
 If you don't want any logfiles created then modify the code, the instructions are in comments.
 
 It also includes an IP/game counter.
 
 When `Diablo II: Resurrected` is launched and connects to battle.net it begins opening and closing connections to multiple IPs for about 20 seconds. The script might display some of them. If you create or join a game during that period, wait until no new IPs appear, the last (most recent) one will be your current game's IP.
 
-Next to region a number is displayed, e.g. `Asia,79` or `Europe,180`, associated with what some call a *subregion* or a different *lobby*. When `Diablo II: Resurrected` is launched it connects to one of the two possible addresses for each region:
+Next to region a number is displayed, e.g. `Asia.79` or `Europe.180`, associated with what some call a *subregion* or a different *lobby*. When `Diablo II: Resurrected` is launched it connects to one of the two possible addresses for each region:
 * Americas:
   * `137.221.106.88`
   * `137.221.106.188`
@@ -66,7 +66,7 @@ Whether this *subregion* has any significance is yet to be discovered. Some play
 
 ## How it works
 
-The script in essence works the same way as `netstat`, [TCPView](https://docs.microsoft.com/en-us/sysinternals/downloads/tcpview) or `Resource Monitor` (a built-in Windows tool).  
+The script in essence works the same way as `netstat`, [TCPView](https://docs.microsoft.com/en-us/sysinternals/downloads/tcpview) or `Resource Monitor` (a built-in Windows tool).
 It asks your operating system what TCP connections are open by which processes using a standard Python library `psutil`. It does not require admin rights, inject or modify anything, or break TOS.
 
 ## Other software
