@@ -90,7 +90,6 @@ def print_ip():
     if len(open_ips) == 1:
         # found a new game ip, log it
         for current_game_ip, status in (open_ips-previous_ips):
-            print(' '*100, end="\r", flush=True) #clear line
             if current_game_ip == hunting_ip and not hunting_ip_found:
                 print(Fore.LIGHTRED_EX + 'Clone IP found!', flush=True)
                 hunting_ip_found = True
