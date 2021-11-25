@@ -11,11 +11,11 @@ Useful for hunting Diablo Clone or data collection.
 A compiled version for Windows can be downloaded form the [Release Page](https://github.com/sir-wilhelm/D2R-IP-logger/releases), you can download it here:
 [D2R_ip.exe](https://github.com/sir-wilhelm/D2R-IP-logger/releases/latest/download/D2R_ip.exe).
 
-You can also run the [D2R_ip.py](https://github.com/sir-wilhelm/D2R-IP-logger/raw/main/D2R_ip.py) script manually by following the steps below:
+You can also run the script manually by following the steps below:
 * Install Python (If you don't have it)
   * https://www.python.org/downloads/
   * On Windows during installation select "Add Python to PATH"
-* Install required Python libraries, by opening Command Prompt or PowerShell and typing:
+* Install required Python libraries, by opening PowerShell and typing:
   * `python -m pip install --upgrade pip` (optional)
   * `pip install psutil`
     * If this fails due to `Microsoft Visual C++ 14.0 or greater is required`, install it (large download):
@@ -31,7 +31,7 @@ You can also run the [D2R_ip.py](https://github.com/sir-wilhelm/D2R-IP-logger/ra
 
 On Windows you can either:
 * double-click `D2R_ip.py` or `D2R_ip.exe` in File Explorer
-* open PowerShell (`Windows Key + r`, type `powershell`, press enter), navigate to the directory where you extracted the files (i.e. type `cd C:\Users\YourUsername\Downloads\D2R_ip\`) then type `python D2R_ip.py` or `py D2R_ip.py` or `D2R_ip.exe`.
+* open PowerShell, navigate to the directory where you extracted the files (i.e. type `cd C:\Users\YourUsername\Downloads\D2R_ip\`) then type `python D2R_ip.py` or `py D2R_ip.py` or `D2R_ip.exe`.
 
 To stop the program press `CTRL+C` or simply close the console window.
 
@@ -42,7 +42,7 @@ To hunt for a specific ip address:
 
 ## Info
 
-In the last line a clock is displayed, followed by the number of seconds that has passed since the last entry. The counter will go green and stop after 90 seconds.
+In the last line a clock is displayed, followed by the number of seconds that has passed since the last entry. After 90 seconds the clock will go green and the counter stops.
 
 The logfiles appear in the same folder where the program is located, with filenames `D2R_ip_*.log` where `*` is today's date.
 If you don't want any logfiles created then modify the code, the instructions are in comments.
