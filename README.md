@@ -4,7 +4,7 @@ A python script that can display the IP of your online game in Diablo II Resurre
 
 Useful for hunting Diablo Clone or data collection.
 
-![](https://i.imgur.com/q59EWIL.png)
+![](https://i.imgur.com/IdX35A6.png)
 
 ## How to install
 
